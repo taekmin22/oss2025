@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week2-assignment#1</title>
+</head>
+
+<style>
+    .div_navtop{
+        color: white;
+        background-color: rgb(56, 184, 133);
+        border-radius: 5px;
+        padding: 5px 10px 20px 10px;
+    }
+
+    .div_navtop h1{
+        margin: 0px;
+    }
+
+    .div_maincontent{
+        display: flex;
+    }
+
+    ul{
+        list-style:none;
+        padding: 0px;
+    }
+
+    .div_leftcontent ul li{
+        width: 200px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 5px;
+        background-color: rgb(244, 238, 238);
+        margin-bottom: 5px;
+    }
+
+    .div_leftcontent ul li:hover{
+        width: 200px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 5px;
+        background-color: white;
+        margin-bottom: 5px;
+    }
+
+    .div_leftcontent ul li.active{
+        background-color: rgb(56, 184, 133);
+        color:white;
+    }
+
+    .div_centercontent{
+        padding: 5px 20px;
+    }
+    
+    .div_rightcontent{
+        width : 20vw;
+        margin: 10px 0px 10px 10px;
+        padding: 20px 5px;
+        border-radius: 5px;;
+        color:white;
+        background-color: rgb(48, 175, 225);
+    }
+
+    .div_rightcontent h4{
+        margin: 0px;
+    }
+
+    .div_footer{
+        margin: 10px 20px;
+        font-size: 10px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        background-color: rgb(244, 238, 238);
+        padding:5px 10px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <!-- nav top 공간 -->
+    <div class="div_navtop">
+        <h1>Welcome to 김택민's Homepage (2200204)</h1>
+
+        <div class="div_navtop_content">Use the menu to select different Stylesheets</div>
+    </div>
+
+    <!-- 중간 콘텐츠 공간 -->
+    <div class="div_maincontent">
+        <div class="div_leftcontent">
+            <ul>
+                <li class="active">Stylesheet 1</li>
+                <li>Stylesheet 2</li>
+                <li>Stylesheet 3</li>
+                <li>Stylesheet 4</li>
+                <li>No Stylesheet</li>
+            </ul>
+        </div>
+
+        <div class="div_centercontent">
+            <h2>Same Page Different Stylesheets</h2>
+            This is a demonstration of how different stylesheets can change the layout of your HTML page. You
+            can change the layout of this page by selecting different stylesheets in the menu, or by selecting
+            one of the following links:
+            <div>
+                <a href="./style1.html">Stylesheet1</a>,
+                <a href="./style2.html">Stylesheet2</a>,
+                <a href="./style3.html">Stylesheet3</a>,
+                <a href="./style4.html">Stylesheet4</a>.
+            </div>
+            <h3>No Styles</h3>
+            This page uses DIV elements to group different sections of the HTML page. Click here to see how
+            the page looks like with no stylesheet:
+            <div>
+                <a href="./index.html">No Stylesheet</a>.
+            </div>
+        </div>
+
+        <div class="div_rightcontent">   
+            <h4>Side-Bar</h4>
+            <br>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+            ut laoreet dolore magna aliquam erat volutpat.
+        </div>
+
+    </div>
+
+    <div class="div_footer">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
+    </div>    
+</body>
+</html>
