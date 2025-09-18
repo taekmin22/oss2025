@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <h4> 덧셈 계산기</h4>
+    <form>
+        <input type="number" size="2" name="num1" id="num1" pattern="\d*">
+        +
+        <input type="number" size="2" name="num2" id="num2" pattern="\d*">
+        <button onclick="add()" type="button"> = </button>
+        <input type="number" size="2" name="input_result" id="input_result" pattern="\d*">
+        <br><br>
+        <input type="reset" value="초기화">
+    </form>
+
+    <script> 
+        function add() {
+            let num1 = document.getElementById("num1");
+            let num2 = document.getElementById("num2");
+            let sum = Number(num1.value) + Number(num2.value);
+
+            let input_result = document.getElementById("input_result");
+            input_result.value = sum;
+        }
+    </script> -->
+
+    
+    <div id="div_test" onclick="alert('wow')" 
+    onmouseover="console.log('mouse.in'); listener_mouseover();" 
+    onmouseout = "listener_mouseout();"
+    style="background-color: blanchedalmond; width:200px; height:200px">1123</div>
+
+    <script>
+        function listener_mouseover() {
+            let div_test = document.getElementById("div_test");
+            div_test.style = "background-color: yellow";
+            div_test.innerHTML(
+               '<img style="width:100px; height:100px;" src="https://storage.googleapis.com/media-newsinitiative/images/GO801_GNI_VerifyingPhotos_Card2_image3.original.jpg"/>'
+            )
+        }
+
+        function listener_mouseout() {
+            let div_test = document.getElementById("div_test");
+            div_test.innerHTML = "haha";
+        }
+
+    </script>
+</body>
+
+</html>
