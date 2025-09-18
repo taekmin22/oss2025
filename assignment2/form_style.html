@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        form {
+            background-color: rgb(244, 220, 236);
+        }
+
+        h2 {
+            text-align: center;
+            background-color: rgb(166, 238, 214);
+            margin-bottom: 0;
+            padding-bottom: 10px;
+        }
+
+        .name {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        input[type=text] {
+            margin-right: 10px;
+            width: 100px;
+            height: 20px;
+        }
+
+        #fname {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        #lname {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .date {
+            display: inline;
+            margin-left: 10px;
+            padding: 0px 10px;
+            border: solid 2px #eee;
+        }
+
+
+        #bdate {
+            color: blueviolet;
+            font-size: large;
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+
+        #bdate:hover {
+            color: rgb(17, 2, 30);
+            font-size: large;
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            background-color: rgb(209, 184, 233);
+            display: flex;
+            border: 2px solid #eee;
+            border-radius: 25px;
+            gap: 10px;
+        }
+
+        .question_item {
+            display: flex;
+            padding-left: 60px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            flex: 1;
+            align-items: center;
+            border: solid 2px #eee;
+            border-radius: 25px;
+        }
+
+        .option {
+            margin-left: 20px;
+        }
+
+        .grade {
+            text-align: center;
+        }
+
+        .color {
+            display: flex;
+            justify-content: center;
+        }
+
+        #color_cont {
+            width: 300px;
+            background-color: rgb(251, 251, 192);
+            border: solid 2px #eee;
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        #box {
+            border: solid 2px #eee;
+            background-color: rgb(206, 252, 252);
+            border-radius: 25px;
+        }
+
+        .comment {
+            border: solid 2px #eee;
+            margin-top: 10px;
+            padding-left: 30px;
+        }
+
+        #comment1 {
+            font-size: 15px;
+            font-weight: bold;
+
+        }
+
+        .button {
+            display: flex;
+            justify-content: end;
+            border: solid 2px #eee;
+            margin-top: 10px;
+            padding: 20px 20px;
+        }
+
+        #cont {
+            border-radius: 25px;
+            background-color: aliceblue;
+            text-align: center;
+            padding: 20px 20px;
+            width: 200px;
+        }
+
+        #cont input[type=submit] {
+            margin-right: 20px;
+            padding: 10px 15px;
+            border-radius: 15px;
+            background-color: rgb(99, 99, 248);
+            color: #eee;
+            font-size: large;
+        }
+
+        #cont input[type=reset] {
+            padding: 10px 15px;
+            border-radius: 15px;
+            background-color: rgb(255, 91, 91);
+            color: #eee;
+            font-size: large;
+        }
+
+        #cont input[type=submit]:hover {
+            margin-right: 20px;
+            padding: 10px 15px;
+            border-radius: 15px;
+            background-color: rgb(45, 45, 198);
+            color: #eee;
+            font-size: large;
+        }
+
+        #cont input[type=reset]:hover {
+            padding: 10px 15px;
+            border-radius: 15px;
+            background-color: rgb(199, 47, 47);
+            color: #eee;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>HTML Forms</h2>
+
+    <form action="/action_page.php">
+        <div class="name">
+            <label id="fname" for="fname">First name:</label>
+            <input type="text" id="fname" name="fname" autofocus>
+            <label id="lname" for="lname">Last name:</label>
+            <input type="text" id="lname" name="lname"><br><br>
+        </div>
+
+
+        <div class="date">
+            <label id="bdate" for="bdate">Your Birth Date</label>
+            <input type="date" id="date" name="date">
+        </div>
+
+
+        <div class="question">
+            <div class="question_item">
+                <h3>Choose your favorite Web language: </h3>
+                <div class="option">
+                    <input type="radio" id="html" name="fav_language" value="HTML">
+                    <label for="html">HTML</label><br>
+                    <input type="radio" id="css" name="fav_language" value="CSS">
+                    <label for="css">CSS</label><br>
+                    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                    <label for="javascript">JavaScript</label>
+                </div>
+            </div>
+
+
+            <div class="question_item">
+                <h3 id="q1">Choose the place you do your homeworks</h3>
+                <div class="option">
+                    <input type="checkbox" id="place1" name="place1" value="Home">
+                    <label for="place1"> Home</label><br>
+                    <input type="checkbox" id="place2" name="place2" value="Library">
+                    <label for="place2"> Library</label><br>
+                    <input type="checkbox" id="place3" name="place3" value="Don't do homeworks">
+                    <label for="place3">Don't do homeworks</label><br><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="grade">
+            <h3> Select your grade</h3>
+            <label for="select_1" style="color:rgb(112, 112, 111)">Grade:</label>
+            <select id="select_1" name="select_1">
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5+ </option>
+            </select><br><br>
+        </div>
+
+        <div class="color">
+            <div id="color_cont">
+                <h3>Choose your favorite color</h3>
+                <div id="box">
+                    <label for="input_color"> Color ---> </label>
+                    <input type="color" id="color" name="color" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="comment">
+            <h3>Write down your comments</h3>
+            <div id="comment1">
+                <laber for="textarea">Your comments:</laber>
+            </div>
+            <textarea id="textare1" name="textarea1" cols="50"> </textarea><br>
+
+        </div>
+
+        <div class="button">
+            <div id="cont">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>
