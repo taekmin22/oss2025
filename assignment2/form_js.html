@@ -182,14 +182,14 @@
 
 <body>
 
-    <h2>HTML Forms</h2>
+    <h2>Tell me about yourself!</h2>
 
-    <form action="/action_page.php">
+    <form action="/action_page.php" method="POST">
         <div class="name">
             <label id="fname" for="fname">First name:</label>
-            <input type="text" id="fname" name="fname" autofocus>
+            <input type="text" id="fname1" name="fname1" autofocus>
             <label id="lname" for="lname">Last name:</label>
-            <input type="text" id="lname" name="lname"><br><br>
+            <input type="text" id="lname1" name="lname1"><br><br>
         </div>
 
 
@@ -216,11 +216,11 @@
             <div class="question_item">
                 <h3 id="q1">Choose the place you do your homeworks</h3>
                 <div class="option">
-                    <input type="checkbox" id="place1" name="place1" value="Home">
+                    <input type="checkbox" id="place1" name="place" value="Home">
                     <label for="place1"> Home</label><br>
-                    <input type="checkbox" id="place2" name="place2" value="Library">
+                    <input type="checkbox" id="place2" name="place" value="Library">
                     <label for="place2"> Library</label><br>
-                    <input type="checkbox" id="place3" name="place3" value="Don't do homeworks">
+                    <input type="checkbox" id="place3" name="place" value="Don't do homeworks">
                     <label for="place3">Don't do homeworks</label><br><br>
                 </div>
             </div>
@@ -260,12 +260,72 @@
 
         <div class="button">
             <div id="cont">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" onclick="return validate();">
                 <input type="reset" value="Reset">
             </div>
         </div>
     </form>
 
+    <script>
+        function validate() {
+            let fName = document.getElementById("fname1").value;
+            if (fName == "") {
+                alert("이름을 입력해주세요.");
+                return false;
+            }
+
+            let lName = document.getElementById("lname1").value;
+            if (lName == "") {
+                alert("성을 입력해주세요.");
+                return false;
+            }
+
+            let dates = document.getElementById("date").value;
+            if (dates == "") {
+                alert("날짜를 입력해주세요.");
+                return false;
+            }
+
+            let favLang = document.getElementsByName("fav_language");
+            let langChecked = false;
+
+            for (let i = 0; i < favLang.length; i++) {
+                if (favLang[i].checked) {
+                    langChecked = true;
+                    break;
+                }
+            }
+            if (langChecked == false) {
+                alert("좋아하는 언어를 선택해주세요.");
+                return false;
+            }
+
+            let favPlace = document.getElementsByName("place");
+            let placeChecked = false;
+
+            for (let i = 0; i < favPlace.length; i++) {
+                if (favPlace[i].checked) {
+                    placeChecked = true;
+                    break;
+                }
+            }
+            if (placeChecked == false) {
+                alert("공부하는 장소를 선택해주세요");
+                return false;
+            }
+
+            let yourComment = document.getElementById("textarea1").value;
+            if (yourComment.trim() == "") {
+                alert("코멘트를 입력해주세요.");
+                return false;
+            }
+
+
+            return true;
+        }
+
+
+    </script>
 </body>
 
 </html>
