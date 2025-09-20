@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h2 {
+            margin-left: 20px;
+        }
+        #lists {
+            width: 200px;
+            height: 20px;
+            background-color: rgb(220, 236, 241);
+            margin: 10px 10px;
+        }
+
+        #add {
+            width: 60px;
+            height: 30px;
+            margin: 10px 0px;
+            background-color: blue;
+            border: solid 1px black;
+            border-radius: 10px;
+            color: white;
+        }
+
+        #add:hover {
+            background-color: rgb(2, 2, 126);
+        }
+
+        #reset {
+            width: 60px;
+            height: 30px;
+            margin: 10px 0px;
+            background-color: red;
+            border: solid 1px black;
+            border-radius: 10px;
+            color: white;
+        }
+
+        #reset:hover {
+            background-color: rgb(129, 0, 0);
+        }
+
+        li {
+            color:rgb(31, 77, 88);
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Dynamic Web page</h2>
+        <input type="text" id="lists" autofocus/>
+        <button id="add">추가</button>
+        <button id="reset">삭제</button>
+
+        <ul id="itemList"></ul>
+    </div>
+
+    <script>
+        window.onload = function () {
+            let input = document.getElementById("lists");
+            let addButton = document.getElementById("add");
+            let resetButton = document.getElementById("reset");
+            let list = document.getElementById("itemList");
+
+            function addItem() {
+                let item = input.value;
+                if (item !== "") {
+                    let addlist = document.createElement("li");
+
+                    addlist.textContent = item;
+
+                    list.appendChild(addlist);
+
+                    input.value = "";
+                }
+                else {
+                    alert("내용을 입력하세요.")
+                }
+            };
+
+            addButton.addEventListener("click", addItem);
+
+            resetButton.addEventListener("click", function () {
+                list.innerHTML = "";
+            });
+
+        };
+    </script>
+
+</body>
+
+</html>
