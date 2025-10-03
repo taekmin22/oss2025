@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="my.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container add">
+        <div class="addtitle">Add a new book</div>
+
+        <form action="index.html">
+            <div class="form-group">
+                <label for="bookname"> Book's name: </label>
+                <input type="text" class="form-control" id="bookname" autofocus placeholder="Enter name">
+            </div>
+
+            <div class="form-group">
+                <label for="bookauthor"> Book's author: </label>
+                <input type="text" class="form-control" id="bookauthor" placeholder="Enter author">
+            </div>
+
+            <div class="form-group">
+                <label for="bookyear"> Published year: </label>
+                <input type="number" class="form-control" id="bookyear" placeholder="Enter year">
+
+            </div>
+
+            <div class="form-group">
+                <label for="bookprice"> Book's price:</label>
+                <input type="number" class="form-control" id="bookprice" placeholder="Enter price">
+            </div>
+
+            <div class="form-group">
+                <label for="bookpage"> Book's page: </label>
+                <input type="number" class="form-control" id="bookpage" placeholder="Enter page">
+            </div>
+
+            <div class="form-group">
+                <label for="bookpublisher"> Publisher: </label>
+                <input type="text" class="form-control" id="bookpublisher" placeholder="Enter publisher">
+            </div>
+
+            <button type="submit" class="btn btn-default"  id="submit" onclick="return validate()">Submit</button>
+            <button type="exit" class="btn btn-default" id="exit">Exit</button>
+
+        </form>
+    </div>
+
+    <script>
+        function validate() {
+            let fName = document.getElementById("bookname").value;
+            if (fName == "") {
+                alert("이름을 입력해주세요");
+                return false;
+            }
+
+            let fauthor = document.getElementById("bookauthor").value;
+            if (fauthor == "") {
+                alert("작가를 입력해주세요");
+                return false;
+            }
+
+            let fyear = document.getElementById("bookyear").value;
+            if (fyear == "") {
+                alert("연도를 입력해주세요");
+                return false;
+            }
+
+            let fprice = document.getElementById("bookprice").value;
+            if (fprice == "") {
+                alert("가격을 입력해주세요");
+                return false;
+            }
+
+            let fpage = document.getElementById("bookpage").value;
+            if (fpage == "") {
+                alert("페이지를 입력해주세요");
+                return false;
+            }
+
+            let fpublisher = document.getElementById("bookpublisher").value;
+            if (fpublisher == "") {
+                alert("출판사를 입력해주세요");
+                return false;
+            }
+            
+            alert("게시물이 추가됩니다.")
+        }
+
+
+    </script>
+</body>
+
+</html>

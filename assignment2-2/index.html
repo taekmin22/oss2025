@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="my.css">
+</head>
+
+<body>
+    <div class="title">My Books</div>
+    <div class="header">
+        <div class="bookList">Book lists</div>
+        <div class="rightSide">
+            <p>
+                <label for="searchBook">Search </label>
+                <input type="text" id="searchBook" autofocus>
+            </p>
+            <button id="addButton">add</button>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td class="td_name">1984</td>
+                <td>George Orwel</td>
+                <td>2021</td>
+                <td>10000</td>
+            </tr>
+
+            <tr>
+                <td class="td_name">The Stranger</td>
+                <td>Albert Camus</td>
+                <td>2011</td>
+                <td>8000</td>
+            </tr>
+
+            <tr>
+                <td class="td_name">The Little Prince</td>
+                <td>Antoine de Saint-Exupery</td>
+                <td>2015</td>
+                <td>11800</td>
+            </tr>
+
+            <tr>
+                <td class="td_name">Sapiens</td>
+                <td>Yuval Noah Harari</td>
+                <td>2015</td>
+                <td>24000</td>
+            </tr>
+
+            <tr>
+                <td class="td_name">The Great Gatsby</td>
+                <td>F. Scott Fitzgerald</td>
+                <td>2003</td>
+                <td>8000</td>
+            </tr>
+
+            <tr>
+                <td class="td_name">One Hundred Years of Solitude</td>
+                <td>Gabriel Garcia Marquez</td>
+                <td>2000</td>
+                <td>15000</td>
+            </tr>
+
+            <tr>
+                <td class="td_name">To Kill a Mockingbird</td>
+                <td>Harper Lee</td>
+                <td>1960</td>
+                <td>14000</td>
+            </tr>
+
+            <tr>
+                <td class="td_name">The Catcher in the Rye</td>
+                <td>J.D.Salinger</td>
+                <td>1951</td>
+                <td>13000</td>
+            </tr>
+
+            <tr>
+                <td class="td_name">Thinking, Fast and Slow</td>
+                <td>Daniel Kahenman</td>
+                <td>2011</td>
+                <td>19000</td>
+            </tr>
+
+            <tr>
+                <td class="td_name">Clean Code</td>
+                <td>Robert C. Martin</td>
+                <td>2008</td>
+                <td>35000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="floater">
+        <div class="date">2025-2 oss</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let myButton = document.getElementById("addButton")
+
+        myButton.addEventListener("click", function () {
+            alert("목록 추가 페이지로 이동합니다.")
+            window.location.href = 'add.html';
+        });
+    </script>
+</body>
+
+</html>
