@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="my.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container view">
+        <div class="viewh">
+            Book's info:
+        </div>
+
+        <div class="viewBox">
+            <div class="viewTitle">
+                Book name:
+            </div>
+            <div class="viewBody">
+                1984
+            </div>
+
+            <div class="viewTitle">
+                Book author:
+            </div>
+            <div class="viewBody">
+                George Orwel
+            </div>
+
+            <div class="viewTitle">
+                Book year:
+            </div>
+            <div class="viewBody">
+                2021
+            </div>
+
+            <div class="viewTitle">
+                Book price:
+            </div>
+            <div class="viewBody">
+                10000
+            </div>
+
+            <div class="viewTitle">
+                Book page:
+            </div>
+            <div class="viewBody">
+                444
+            </div>
+
+            <div class="viewTitle">
+                Book publisher:
+            </div>
+            <div class="viewBody">
+                Minwem
+            </div>
+        </div>
+
+        <button type="submit" class="vButton" id="editB">Edit</button>
+        <button type="submit" class="vButton" id="deleteB">Delete</button>
+        <button type="submit" class="vButton" id="listB">List</button>
+    </div>
+
+    <script>
+        let eButton = document.getElementById("editB")
+
+        eButton.addEventListener("click", function () {
+            alert("수정 페이지로 이동합니다.")
+            window.location.href = 'edit.html';
+        });
+
+        let dButton = document.getElementById("deleteB");
+
+        dButton.addEventListener("click", function () {
+            let memory = confirm("게시물을 삭제할까요?");
+
+            if (memory) {
+                alert("삭제되었습니다.");
+            } else {
+                alert("취소되었습니다.");
+            }
+            window.location.href = 'view.html';
+        });
+
+        let lButton = document.getElementById("listB")
+
+        lButton.addEventListener("click", function () {
+            alert("목록 페이지로 이동합니다.")
+            window.location.href = 'index.html';
+        });
+
+
+    </script>
+</body>
+
+</html>
