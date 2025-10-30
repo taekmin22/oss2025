@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let fruits = ["apple", "mango", "banana"];
+        alert(fruits[0]);
+
+        let fruits2 = [];
+        fruits2[0] = "orange";;
+        fruits2[2] = "pear"
+        // alert(fruits2[0]); //orange
+        // alert(fruits2[1]); //undefined
+        // alert(fruits2[2]); //pear
+
+        for (let i = 0; i < fruits2.length; i++) { //이거
+            console.log(fruits2[i]);
+        }
+
+        for (let each of fruits2) { //이거랑 같음
+            console.log(each);
+        }
+
+        fruits2.push("lemon");
+
+        fruits2.forEach(function (each) { //이거랑 같음
+            console.log(each);
+        });
+
+
+        //push 라는 메서드를 쓰지 않고 동일한 기능을 구현하기
+        customPush(fruits2, "kiwi")
+        function customPush(prm_array, prm_value) {
+            prm_array[prm_array.length] = prm_value;
+        }
+        for (let each of fruits2) { //이거랑 같음
+            console.log(each);
+        }
+
+
+        ///////////////////////////////////////////////구조 분해 할당
+        const fruits3 = ["Bananas", "Oranges", "Apples", "Mangos"];
+        // Destructuring 
+        let [fruit1, fruit2] = fruits3;
+        alert(fruit1 + "/" + fruit2);
+
+
+        const person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50
+        };
+        // Destructuring 
+        let {lastName1,firstName1} = person;
+        // Default value 
+        let {firstName2, lastName2, country = "US"} = person;
+        // Property alias 
+        let {lastName: name} = person;
+
+        /////////////////////////////////////////////객체 문자열 전환
+        let aaa = JSON.stringify(person);
+        console.log(person);
+        console.log(aaa);
+        let clonePerson = JSON.parse(aaa);
+        console.log(clonePerson);
+
+        ///////////////////////////////////////////hoisting
+        exeText(); //여기서도 부를수 있음
+        function exeText() {
+            alert(11);
+        }
+
+        let exeTest = function() { //이렇게 하면 함수를 미리 부를수 없음
+            alert(11);
+        }
+        exeTest();
+
+        let exeTeset = () => {
+            alert(11);
+        }
+        exeTeset(); //람다식으로
+        //let은 hosting은 되지만 접근은 안됨
+
+        ////////////////////////////////////////////////
+        window.open("https://daum.net");
+
+        console.log("href-" + location.href);
+        console.log("hostname-" + location.hostname);
+        console.log("protocol-" + location.protocol);
+        console.log("pathname-" + location.pathname);
+        
+
+    </script>
+</body>
+
+
+</html>
