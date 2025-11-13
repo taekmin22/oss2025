@@ -7,6 +7,7 @@
     <style>
         body {
             margin: 15px;
+
         }
 
         h2 {
@@ -14,9 +15,9 @@
             background-color: rgb(245, 219, 188);
             text-align: center;
             color: #503b3b;
-            font-size: 50px;
+            font-size: 40px;
             text-shadow: #ba8d8d 1px 2px;
-            margin: 0px 0px 10px;
+            margin: 0 0 10px;
             padding: 20px;
         }
 
@@ -43,13 +44,6 @@
             background-color: #c7a9a9;
         }
 
-        input {
-            padding: 6px;
-            margin: 4px;
-            width: 100px;
-        }
-
-
         button {
             padding: 10px;
             margin: 4px;
@@ -57,6 +51,7 @@
             border-radius: 10%;
             border-color: beige;
             font-size: 14px;
+            cursor: pointer;
         }
 
         button:hover {
@@ -65,6 +60,48 @@
 
         .list {
             text-align: center;
+        }
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fffaf5;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+        }
+
+        .modal-content input {
+            width: 90%;
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+        .close {
+            color: gray;
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -75,22 +112,9 @@
 
     <div class="list">
         <button id="btn_load">도서 목록 불러오기</button>
+        <button id="btn_open_add">도서 추가</button>
+        <button id="btn_open_edit">도서 수정</button>
     </div>
-
-    <h3>도서 추가</h3>
-    제목: <input id="title" type="text">
-    저자: <input id="author" type="text">
-    연도: <input id="year" type="number">
-    가격: <input id="price" type="number">
-    <button id="btn_add">추가</button>
-
-    <h3>도서 수정</h3>
-    ID: <input id="edit_id" type="text">
-    제목: <input id="edit_title" type="text">
-    저자: <input id="edit_author" type="text">
-    연도: <input id="edit_year" type="number">
-    가격: <input id="edit_price" type="number">
-    <button id="btn_update">수정</button>
 
     <h3>도서 삭제</h3>
     ID: <input id="delete_id" type="text">
@@ -110,6 +134,31 @@
         <tbody id="book_list"></tbody>
     </table>
 
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeAdd">&times;</span>
+            <h3>도서 추가</h3>
+            제목: <input id="title" type="text"><br>
+            저자: <input id="author" type="text"><br>
+            연도: <input id="year" type="number"><br>
+            가격: <input id="price" type="number"><br>
+            <button id="btn_add">추가</button>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeEdit">&times;</span>
+            <h3>도서 수정</h3>
+            ID: <input id="edit_id" type="text"><br>
+            제목: <input id="edit_title" type="text"><br>
+            저자: <input id="edit_author" type="text"><br>
+            연도: <input id="edit_year" type="number"><br>
+            가격: <input id="edit_price" type="number"><br>
+            <button id="btn_update">수정</button>
+        </div>
+    </div>
+
     <script>
         const BASE_URL = "https://6915407784e8bd126af93bcd.mockapi.io/books";
 
@@ -123,12 +172,12 @@
                     let html = "";
                     data.forEach(b => {
                         html += `<tr>
-                            <td>${b.id}</td>
-                            <td>${b.title}</td>
-                            <td>${b.author}</td>
-                            <td>${b.year}</td>
-                            <td>${b.price}</td>
-                        </tr>`;
+              <td>${b.id}</td>
+              <td>${b.title}</td>
+              <td>${b.author}</td>
+              <td>${b.year}</td>
+              <td>${b.price}</td>
+            </tr>`;
                     });
                     $("#book_list").html(html);
                 } else {
@@ -136,6 +185,12 @@
                 }
             };
         });
+
+        $("#btn_open_add").click(() => $("#addModal").show());
+        $("#closeAdd").click(() => $("#addModal").hide());
+
+        $("#btn_open_edit").click(() => $("#editModal").show());
+        $("#closeEdit").click(() => $("#editModal").hide());
 
         $("#btn_add").click(function () {
             const newBook = {
@@ -153,6 +208,7 @@
             xhr.onload = () => {
                 if (xhr.status === 201) {
                     alert("도서 추가 완료!");
+                    $("#addModal").hide();
                     $("#btn_load").click();
                 } else {
                     console.log(xhr.status, xhr.statusText);
@@ -162,6 +218,8 @@
 
         $("#btn_update").click(function () {
             const id = $("#edit_id").val();
+            if (!id) return alert("ID를 입력하세요");
+
             const updateBook = {
                 title: $("#edit_title").val(),
                 author: $("#edit_author").val(),
@@ -177,6 +235,7 @@
             xhr.onload = () => {
                 if (xhr.status === 200) {
                     alert("도서 수정 완료!");
+                    $("#editModal").hide();
                     $("#btn_load").click();
                 } else {
                     console.log(xhr.status, xhr.statusText);
